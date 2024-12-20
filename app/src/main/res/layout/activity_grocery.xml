@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- RecyclerView for Grocery List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGroceryList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnClearList"
+        android:paddingBottom="8dp" />
+
+    <!-- Clear List Button -->
+    <Button
+        android:id="@+id/btnClearList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#F44336"
+        android:text="Clear Grocery List"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+</RelativeLayout>

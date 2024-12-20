@@ -1,40 +1,75 @@
 package com.example.mealplanner;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import android.widget.CalendarView;
-import android.widget.TextView;
-
 
 public class MainActivity extends AppCompatActivity {
-    CalendarView calendar;
-    TextView date_view;
+
+    private ImageButton btnPlanner, btnGrocery, btnSettings;
+    private TextView tvDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // Reference to the TextView
-        TextView tvDate = findViewById(R.id.tvDate);
+        // Initialize views
+        tvDate = findViewById(R.id.tvDate);
+        btnPlanner = findViewById(R.id.btnPlanner);
+        btnGrocery = findViewById(R.id.btnGrocery);
+        btnSettings = findViewById(R.id.btnSettings);
 
-        // Get today's date using LocalDate
-        LocalDate today = LocalDate.now();
+        // Display today's date
+        displayTodaysDate();
 
-        // Format the date (e.g., "December 2, 2024")
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd");
-        String formattedDate = today.format(formatter);
+        // Navigate to Planner Screen
+        btnPlanner.setOnClickListener(v -> {
+            try {
+                Intent intent = new Intent(MainActivity.this, PlannerActivity.class);
+                startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(MainActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
 
-        // Set the formatted date to the TextView
+
+        // Navigate to Grocery Screen
+        btnGrocery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GroceryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Navigate to Profile/Settings Screen
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * Display today's date in the TextView
+     */
+    private void displayTodaysDate() {
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("MMMM dd");
+        String formattedDate = formatter.format(calendar.getTime());
         tvDate.setText(formattedDate);
     }
+
 }

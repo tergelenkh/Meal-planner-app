@@ -23,7 +23,6 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="16dp" />
 
-        <!-- Weekly Date Picker -->
         <ImageButton
             android:id="@+id/btnPlanner"
             android:layout_width="50dp"
@@ -38,6 +37,7 @@
             android:src="@drawable/planner" />
     </RelativeLayout>
 
+    <!-- Weekly Date Picker -->
     <HorizontalScrollView
         android:id="@+id/weeklyDatePicker"
         android:layout_width="match_parent"
@@ -46,67 +46,10 @@
         android:layout_marginTop="16dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:id="@+id/weeklyDateContainer"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="M"
-                android:textAlignment="center"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="T"
-                android:textAlignment="center"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="W"
-                android:textAlignment="center"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="T"
-                android:textAlignment="center"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="F"
-                android:textAlignment="center"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="S"
-                android:textAlignment="center"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="S"
-                android:textAlignment="center"
-                android:textSize="16sp"/>
-
-        </LinearLayout>
+            android:orientation="horizontal" />
     </HorizontalScrollView>
 
     <!-- Today's Menu Title -->
@@ -257,41 +200,38 @@
     <!-- Footer Navigation -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#F0F0F0"
         android:orientation="horizontal"
-        android:padding="8dp"
-        android:weightSum="3">
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/btnHome"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:contentDescription="Home Button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:padding="8dp"
             android:scaleType="centerInside"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_home" />
 
         <ImageButton
             android:id="@+id/btnGrocery"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:contentDescription="Grocery Button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:padding="8dp"
             android:scaleType="centerInside"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginLeft="40dp"
             android:src="@drawable/ic_grocery" />
 
         <ImageButton
             android:id="@+id/btnSettings"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:contentDescription="Settings Button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:padding="8dp"
             android:scaleType="centerInside"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginLeft="40dp"
             android:src="@drawable/ic_settings" />
     </LinearLayout>
 </RelativeLayout>
